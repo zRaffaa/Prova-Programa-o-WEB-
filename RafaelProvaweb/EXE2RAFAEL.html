@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+</head>
+
+<body>
+    
+
+    <div id="resultado">
+        <table border="1">
+            <thead>
+                <th> Números</th>
+            </thead>
+            <tbody id="tabelaResultado">
+                <th></th>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="resultadoImpares">
+        <table border="1">
+            <thead>
+                <th> Soma dos números que são ímpares</th>
+            </thead>
+            <tbody id="tabelaResultadoImpar">
+                <th></th>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="resultadoPares">
+        <table border="1">
+            <thead>
+                <th> Soma dos números que são pares</th>
+            </thead>
+            <tbody id="tabelaResultadoPar">
+                <th></th>
+            </tbody>
+        </table>
+    </div> <br>
+    <button onclick="sorteio()">Clique aqui</button>
+    <script>
+        var random = Math.round(Math.random()*100);
+       
+        function sorteio () {
+            var num = []
+            for (var i = 0; i<10; i++){
+            num.push(Math.round(Math.random()*100))
+            }
+
+            var linha = ""
+            var numPar = 0
+            var numImpar = 0
+
+            for (var i = 0; i<num.length; i++){
+
+                linha +="<tr>"+
+                        "<td>"+num[i]+"</td>"+
+                        "</tr>"
+            if(num[i] % 2 ===0 ){
+                numPar += num[i]
+            }
+            else{
+                numImpar += num[i]               
+            }
+                document.getElementById("tabelaResultado").innerHTML= linha
+                document.getElementById("tabelaResultadoImpar").innerHTML= numImpar
+                document.getElementById("tabelaResultadoPar").innerHTML= numPar
+            }
+        }
+    </script>
+<style>
+    button{
+        background-color: green;
+        align-items: center;
+        color: white;
+    }
+</style>
+</body>
+</html>

@@ -1,0 +1,9 @@
+body{
+    font-family: verdana;
+    font-size: 50pt;
+    text-align: center;
+    align-items: center;
+    background-color: yellow;
+    border: 10px solid red;
+    border-radius: 30px;
+}

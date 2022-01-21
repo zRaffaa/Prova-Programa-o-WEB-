@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+</head>
+<body>
+    <div>
+        <label>Idade</label>
+        <input type="number" id="idade" placeholder="Idade">
+    </div>
+
+    
+    <div>
+         <label>Peso</label>
+         <input type="number" id="peso" placeholder="Peso"><br>
+     </div>
+     
+    <div>
+         <label>Altura</label>
+         <input type="number" id="altura" placeholder="Altura"><br>
+     </div>
+
+     <br>
+     
+     <button onclick="cadastrar()">Cadastrar</button> 
+      <button onclick="calcular()">Calcular</button>
+
+     <div id="resultado">
+         <br>
+         <table border="1">
+             <thead>
+                 <th>Idade</th>
+                 <th>Peso</th>
+                 <th>Altura</th>
+             </thead>
+             <tbody id="tabResultado">
+
+             </tbody> 
+            
+         </table>
+         <table border="1">
+             <thead>
+                 
+                 <th>Total de pessoas com mais de 90kg</th>
+                 
+                 <th>Total de pessoas com mais de 1.50cm</th>
+             </thead>
+             <tbody id="calculoTabela">
+              
+             </tbody>
+         </table>
+     </div>    
+
+     <script>
+         var pessoas = []
+         function cadastrar (){
+         
+             var auxiliar = {
+                 idade: document.getElementById("idade").value, 
+                 peso: document.getElementById("peso").value,
+                 altura: document.getElementById("altura").value
+             }
+             pessoas.push(auxiliar)
+             var corpoTabela = ""
+             for (let i = 0; i < pessoas.length; i++) {
+                 
+             corpoTabela +="<tr>"+
+                                "<td>"+pessoas[i].idade+"</td>"+
+                                "<td>"+pessoas[i].peso+"</td>"+
+                                "<td>"+pessoas[i].altura+"</td>"+
+                            "</tr>"
+                }
+
+                 
+             document.getElementById("tabelaResultado").innerHTML= corpoTabela
+                        
+         }
+
+         function calcular (){
+             var peso = 0, altura = 0
+             for (let i = 0; i < pessoas.length; i++) {
+                 if (pessoas[i].peso >=90) {
+                     peso += 1 
+                 }    
+             }
+             
+             for (let i = 0; i < pessoas.length; i++) {
+                 if (pessoas[i].altura >=150) {
+                     altura += 1 
+                 }    
+             }
+
+             var corpoTabela ="<tr>"+
+                                "<td>"+peso+"</td>"+
+                                "<td>"+altura+"</td>"+
+                            "</tr>"
+                
+
+                 
+             document.getElementById("calculoTabela").innerHTML= corpoTabela
+         }
+     </script>
+     <style>
+         button{
+             background-color: rgb(18, 111, 18);
+             color: white;
+             font-style: oblique;
+         }
+     </style>
+ </body>
+</html>
